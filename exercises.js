@@ -38,3 +38,22 @@ function fibonacci() {
 }
 
 fibonacci(); // 4613732
+
+/* The prime factors of 13195 are 5, 7, 13 and 29.
+
+What is the largest prime factor of the number 600851475143 ? */
+
+function primeFactors(value) {
+   factors = [];
+  while (value > 1) {
+      for (var i = 2; i <= value; i++) {
+          if (value % i) continue;
+          factors.push(i);
+          value = value / i;
+          break;
+      }
+  }
+  return factors.reverse()[0];
+}
+
+primeFactors(600851475143); //6857
