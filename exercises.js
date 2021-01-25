@@ -87,3 +87,37 @@ function palindromicFunc() {
 }
 
 palindromicFunc(); // 906609
+
+/* 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without
+any remainder.
+
+What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20? */
+
+function smallestPostive() {
+  let test = [];
+  let array = [];
+  let result = 0;
+  for (let i = 1; result === 0; i++) {
+    array.push(i);
+    array.forEach((number) => {
+      if (array.length > 20) {
+        array.splice(-1, 1);
+      }
+      if (test.length > 20) {
+        test.splice(-1, 1);
+      }
+      if (i % number === 0) {
+        test.push(number);
+      }
+    });
+    if (test.length === 20) {
+      result = i;
+    } else {
+      test = [];
+    }
+  }
+
+  return result;
+}
+
+smallestPostive(); // 232792560
